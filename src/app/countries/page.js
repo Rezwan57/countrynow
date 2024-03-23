@@ -70,7 +70,7 @@ function AllCountries() {
       <div className='countryCardContainer'>
 
         {countries.map(country => (
-          <p style={{ fontSize: '1.5rem', color: 'white' }}>{country.name.common}</p>
+          <p key={country.name.common} style={{ fontSize: '1.5rem', color: 'white' }}>{country.name.common}</p>
         ))}
 
       </div>
