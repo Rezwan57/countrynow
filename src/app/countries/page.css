@@ -1,0 +1,63 @@
+.allCountriesContainer {
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+.allCountriesSearch {
+    position: sticky;
+    top: 15vh;
+    /* background-color: #ffffff3d; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.allCountriesSearchBarContainer {
+    width: 35vw;
+    background-color: #ffffff3d;
+    backdrop-filter: blur(10px);
+    padding: 0.25rem;
+    border-radius: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.allCountriesSearchBar {
+    color: azure;
+    width: 90%;
+    max-width: 100%;
+    background-color: transparent;
+    font-size: 1.25rem;
+    height: 3.25rem;
+    border-radius: 5rem;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    outline: none;
+}
+
+.clearButton {
+    background-color: var(--primary);
+    border: none;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 5rem;
+}
+
+.clearButton:active {
+    background-color: #533800;
+    transform: scale(0.25);
+    transition: ease-in-out 0.25s;
+    box-shadow: 0px 0px 15px 7.5px var(--primary);
+}

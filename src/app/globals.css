@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --primary: #00FFA3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,14 +17,51 @@
   }
 }
 
+@font-face {
+  font-family: 'Light';
+  src: url('/fonts/OakSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Regular';
+  src: url('/fonts/OakSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bold';
+  src: url('/fonts/OakSans-Bold.ttf') format('truetype');
+}
+
+
+
+@font-face {
+  font-family: 'Heading';
+  src: url('/fonts/Partita.otf') format('opentype');
+}
+
+
+@font-face {
+  font-family: 'Heading1';
+  src: url('/fonts/Achron.otf') format('opentype');
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Regular', sans-serif;
+  border: hwb(158 0% 0%);
+}
+
 body {
+  font-family: 'Regular', sans-serif;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color:#000000;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 @layer utilities {
