@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import './search.css'
+import Image from 'next/image';
 
 function Search() {
 
@@ -75,7 +76,7 @@ function Search() {
             searchResults.map(country => (
               <div key={country.cca2} className='suggestionItem'>
                 <div className='suggestionFlagContainer'>
-                  <img src={country.flags.svg} alt={`${country.name.common} flag`} className='suggestionFlag' />
+                  <Image src={country.flags.svg} alt={`${country.name.common} flag`} className='suggestionFlag' />
                 </div>
                 <p className='suggestionName'>{country.name.common}</p>
               </div>
