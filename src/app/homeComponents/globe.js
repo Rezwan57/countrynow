@@ -33,7 +33,7 @@ export default function Globe() {
                 { location: [39.9334, 32.8597], size: 0.06 },   // Turkey
                 { location: [1.3521, 103.8198], size: 0.06 },   // Singapore
                 { location: [55.7558, 37.6176], size: 0.06 },    // Russia
-                { location: [40.7128, -74.006], size: 0.1 },    // New York
+                { location: [40.7128, -74.006], size: 0.02 },    // New York
             ],
             onRender: (state) => {
                 state.phi = phi;
