@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import './page.css'
 import { motion } from 'framer-motion';
+import CountryCard from './components/CountryCard';
 
 function AllCountries() {
 
@@ -14,7 +15,14 @@ function AllCountries() {
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-        setCountries(data);
+        const sortedCountries = data.sort((a, b) => {
+          const countryA = a.name.common.toLowerCase();
+          const countryB = b.name.common.toLowerCase();
+          if (countryA < countryB) return -1;
+          if (countryA > countryB) return 1;
+          return 0;
+        });
+        setCountries(sortedCountries);
       })
       .catch(error => {
         console.error('Error fetching countries:', error);
@@ -70,7 +78,7 @@ function AllCountries() {
       <div className='countryCardContainer'>
 
         {countries.map(country => (
-          <p key={country.name.common} style={{ fontSize: '1.5rem', color: 'white' }}>{country.name.common}</p>
+          <CountryCard key={country.name.common} country={country} />
         ))}
 
       </div>

@@ -74,12 +74,12 @@ function Search() {
         <div className='suggestionContainer'>
           {searchResults.length > 0 ? (
             searchResults.map(country => (
-              <div key={country.cca2} className='suggestionItem'>
+              <Link href={`/countries/${country.name.common}`} key={country.cca2} className='suggestionItem'>
                 <div className='suggestionFlagContainer'>
-                  <Image src={country.flags.svg} alt={`${country.name.common} flag`} className='suggestionFlag' />
+                  <Image src={country.flags.svg} width={300} height={200}  alt={`${country.name.common} flag`} className='suggestionFlag' />
                 </div>
                 <p className='suggestionName'>{country.name.common}</p>
-              </div>
+              </Link>
             ))
           ) : (
             <div className="noResults">No matching results</div>
