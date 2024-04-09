@@ -13,7 +13,6 @@
 
 
 
-
 .allCountriesSearch {
     position: sticky;
     top: 15vh;
@@ -77,9 +76,69 @@
 
 .countryCardContainer {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 3.5vw;
+    flex-direction: column;
+    width: 95vw;
+    gap: 1.75vw;
+    padding: 0px 2vw;
     scroll-behavior: smooth;
+}
+
+.countryCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 75vw;
+    gap: 2.5rem;
+    padding: 15px;
+    border-radius: 1rem;
+    background-color: rgb(20, 20, 20);
+    overflow: hidden;
+    /* z-index: -2; */
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    
+    .allCountriesSearchBarContainer {
+        width: 85vw;
+        padding: 0.25rem;
+    }
+
+    .clearButton {
+        background-color: var(--primary);
+        border: none;
+        height: 2.75rem;
+        width: 2.75rem;
+        border-radius: 5rem;
+    }
+
+
+    .allCountriesSearchBar {
+        color: azure;
+        font-size: 0.85rem;
+        width: 80%;
+        height: 2.75rem;
+        padding: 0.5rem 1.05rem;
+    }
+    
+
+
+
+
+    .countryCardContainer {
+        gap: 3.5vw;
+    }
+
+    .countryCard {
+        width: 85vw;
+        border-radius: 0.75rem;
+        gap: 1.15rem;
+        padding: 10px;
+    }
+
 }

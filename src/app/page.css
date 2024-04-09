@@ -31,6 +31,14 @@
     gap: 3.5rem;
 }
 
+
+.globeContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .heroHeading {
     font-family: 'Heading';
     text-transform: uppercase;
@@ -61,12 +69,17 @@
 
     .mainContainer {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
+    }
+
+    .globeContainer {
+        height: 30vh;
+        margin-top: 5vh;
     }
 
     .backgroundMap {

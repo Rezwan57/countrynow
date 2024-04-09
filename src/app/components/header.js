@@ -41,35 +41,31 @@ function Header() {
     return (
         <header className='header'>
 
-            <nav className='nav'>
+            <Link href="/" className='navLinkLogo'>
+                <Image src="/logo.svg" alt="Logo" className='logo' width={60} height={50} />
+            </Link>
 
-                <Link href="/" className='navLinkLogo'>
-                    <Image src="/logo.svg" alt="Logo" className='logo' width={60} height={50} />
-                </Link>
+            <ul className={` ${showMobileNav ? 'mobileNavVisible' : 'navUl'}`}>
+                {NavLinks.map(({ id, title, path }) => (
+                    <li key={id} className='navLi flex justify-center items-center'>
+                        <Link href={path} className={`navLink ${pathname === path ? 'active' : ''}`}>
+                            {title}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
 
-                <ul className={` ${showMobileNav ? 'mobileNavVisible' : 'navUl'}`}>
-                    {NavLinks.map(({ id, title, path }) => (
-                        <li key={id} className='navLi'>
-                            <Link href={path} className={`navLink ${pathname === path ? 'active' : ''}`}>
-                                {title}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+            <div className='mobileNavButton'>
 
-                <div className='mobileNavButton'>
+                <button type="button" onClick={toggleMobileNav}>
 
-                    <button type="button" onClick={toggleMobileNav}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-8 h-8">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-8 h-8">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </button>
-                    
-                </div>
+            </div>
 
-            </nav>
-            
         </header>
     )
 }

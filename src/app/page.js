@@ -14,7 +14,7 @@ export default function Home() {
 
         <div className="mainContainer w-full flex flex-col items-center justify-center">
 
-          <div>
+          <div className="globeContainer">
 
             <Globe />
 

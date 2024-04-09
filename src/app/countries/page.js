@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import './page.css'
 import { motion } from 'framer-motion';
 import CountryCard from './components/CountryCard';
+import Country from './[country]/page';
+import Link from 'next/link';
 
 function AllCountries() {
 
@@ -10,6 +12,14 @@ function AllCountries() {
   const apiUrl = 'https://restcountries.com/v3.1/all';
   const [countries, setCountries] = useState([]);
   const [showSearchButton, setShowSearchButton] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+
+
+  //Scroll
+
+
+  //fetch API 
 
   useEffect(() => {
     fetch(apiUrl)
@@ -41,8 +51,14 @@ function AllCountries() {
 
   const clearSeach = () => {
     setSearch('');
-    setSearchResults([]);
+    setShowSearchButton(false);
   };
+
+  const filteredCountries = search
+    ? countries.filter((country) =>
+      country.name.common.toLowerCase().includes(search.toLowerCase())
+    )
+    : countries;
 
   return (
 
@@ -63,7 +79,7 @@ function AllCountries() {
               type="submit"
               onClick={clearSeach}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </motion.button>
@@ -77,10 +93,21 @@ function AllCountries() {
 
       <div className='countryCardContainer'>
 
-        {countries.map(country => (
-          <CountryCard key={country.name.common} country={country} />
-        ))}
+        {filteredCountries.length > 0 ? (
+          filteredCountries
+            .filter(country => country.name.common.toLowerCase().startsWith(search.toLowerCase()))
+            .sort((a, b) => a.name.common.localeCompare(b.name.common))
+            .map(country => (
 
+              <Link href={`/countries/${country.name.common}`} className='countryCard' key={country} >
+
+                <CountryCard country={country} />
+
+              </Link>
+            ))
+        ) : (
+          <div className="noResults">No matching results</div>
+        )}
       </div>
 
     </div>

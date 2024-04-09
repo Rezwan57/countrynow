@@ -16,12 +16,7 @@ function Search() {
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      const filteredData = data.filter(country => {
-        const loweredSearch = search.toLowerCase();
-        const firstLetterMatch = country.name.common.toLowerCase().startsWith(loweredSearch);
-        return firstLetterMatch;
-      });
-      setSearchResults(filteredData);
+      setSearchResults(data);
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
@@ -42,6 +37,7 @@ function Search() {
   const clearSeach = () => {
     setSearch('');
     setSearchResults([]);
+    setShowSearchButton(false);
   };
 
   return (
@@ -59,7 +55,7 @@ function Search() {
             type="submit"
             onClick={clearSeach}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="w-7 h-7">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </motion.button>
@@ -73,23 +69,40 @@ function Search() {
       {search && (
         <div className='suggestionContainer'>
           {searchResults.length > 0 ? (
-            searchResults.map(country => (
-              <Link href={`/countries/${country.name.common}`} key={country.cca2} className='suggestionItem'>
-                <div className='suggestionFlagContainer'>
-                  <Image src={country.flags.svg} width={300} height={200}  alt={`${country.name.common} flag`} className='suggestionFlag' />
-                </div>
-                <p className='suggestionName'>{country.name.common}</p>
-              </Link>
-            ))
+            searchResults
+              .filter(country => country.name.common.toLowerCase().startsWith(search.toLowerCase()))
+              .sort((a, b) => a.name.common.localeCompare(b.name.common))
+              .map(country => (
+
+                <Link href={`/countries/${country.name.common}`} key={country.name.common} className='suggestionItem'>
+
+                  <div className='suggestionFlagContainer'>
+
+                    <Image src={country.flags.svg} width={300} height={200} alt={`${country.name.common} flag`} className='suggestionFlag' />
+
+                  </div>
+
+                  <p className='suggestionName'>{country.name.common}</p>
+                  
+                </Link>
+              ))
           ) : (
             <div className="noResults">No matching results</div>
           )}
         </div>
       )}
 
+
     </>
 
   )
 }
+
+
+
+
+
+
+
 
 export default Search

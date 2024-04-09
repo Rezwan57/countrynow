@@ -1,12 +1,12 @@
 .searchBarContainer {
-    background-color: #ffffff3d;
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--primary);
     padding: 0.25rem;
     border-radius: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* gap: 0.5rem; */
 }
 
 .searchBar {
@@ -44,12 +44,13 @@
 .suggestionContainer {
     position: absolute;
     margin-top: 1rem;
-    background-color: #ffffff3d;
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--primary);
     height: auto;
     max-height: 40vh;
     width: 100%;
-    padding: 0.05rem 1rem;
+    padding: 0.05rem 0.75rem;
     border-radius: 1.5rem;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -60,9 +61,17 @@
 .suggestionItem{
     display: flex;
     gap: 1rem;
-    margin: 1.25rem 0rem;
+    margin: 0.5rem 0rem;
+    padding: 1rem 0.75rem;
+    border-radius: 1rem;
+    transition: transform 0.25s ease-in-out;
 }
 
+.suggestionItem:hover {
+    cursor: pointer;
+    background-color: #ffffff17;
+    transform: scale(0.975);
+}
 
 .suggestionFlagContainer {
     display: flex;
@@ -115,7 +124,7 @@
 /* total width */
 .suggestionContainer::-webkit-scrollbar {
     /* background-color: #2b2424; */
-    width: 12px;
+    width: 10px;
 }
 
 /* background of the scrollbar except button or resizer */
@@ -127,13 +136,13 @@
 
 /* scrollbar itself */
 .suggestionContainer::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
+    background-color: #292929;
     border-radius: 12px;
-    border: 3.5px solid #08004ebd;
+    border: 2.5px solid var(--primary);
     transition: ease 0.5s;
 }
 .suggestionContainer::-webkit-scrollbar-thumb:hover {
-    background-color: #b8b8b8;
+    background-color: #000000;
 }
 
 /* set button(top and bottom of the scrollbar) */
