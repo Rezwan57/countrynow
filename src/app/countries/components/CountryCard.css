@@ -1,4 +1,4 @@
-.countryCard:hover{
+.countryCard:hover {
     /* box-shadow: 0 0 15px 2.5px var(--primary); */
     background-color: var(--primary);
     transform: scale(0.985);
@@ -6,11 +6,11 @@
     cursor: pointer;
 }
 
-.countryCard:hover > .countryName {
+.countryCard:hover>.countryName {
     color: black;
 }
 
-.countryCardFlag{
+.countryCardFlag {
     /* height: 10vw; */
     aspect-ratio: 3/2;
     display: flex;
@@ -22,7 +22,7 @@
     z-index: 1;
 }
 
-.countryFlagImgBg{
+.countryFlagImgBg {
     position: absolute;
     height: 150%;
     width: 150%;
@@ -31,7 +31,7 @@
     z-index: -1;
 }
 
-.countryName{
+.countryName {
     text-align: center;
     font-size: 1.5rem;
     z-index: 1;
@@ -50,7 +50,7 @@
     z-index: 0;
 }
 
-.countryRegion p{
+.countryRegion p {
     font-family: Bold;
     color: rgba(0, 0, 0, 0.25);
     font-size: 12vw;
@@ -62,7 +62,7 @@
 
 
 @media screen and (max-width: 768px) {
-    .countryCardFlag{
+    .countryCardFlag {
         height: 12vw;
         aspect-ratio: 3/2;
         display: flex;
@@ -73,17 +73,43 @@
         border-radius: 0.5rem;
         z-index: 0;
     }
-    
-    .countryFlagImgBg{
+
+    .countryFlagImgBg {
         position: absolute;
         height: 150%;
         width: 150%;
         filter: blur(35px);
         z-index: -1;
     }
-    
-    .countryName{
+
+    .countryName {
         text-align: center;
         font-size: 0.85rem;
+    }
+
+
+
+
+    .countryRegion {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(5%, 0%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: aqua; */
+        height: 100%;
+        z-index: 0;
+    }
+
+    .countryRegion p {
+        font-family: Bold;
+        color: rgba(0, 0, 0, 0.25);
+        font-size: 12vw;
+        letter-spacing: -0.2rem;
+        text-transform: uppercase;
+        font-weight: bolder;
+
     }
 }
