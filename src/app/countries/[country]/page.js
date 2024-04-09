@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import MapComponent from './components/MapComponent';
 import './page.css'
 
 function Country() {
@@ -56,6 +57,10 @@ function Country() {
 
                         </div>
 
+                    </div>
+
+                    <div className="mapContainer">
+                        <MapComponent countryName={country} />
                     </div>
 
                 </>
